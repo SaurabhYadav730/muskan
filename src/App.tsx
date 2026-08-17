@@ -9,7 +9,6 @@ import { ParallaxBackground } from './components/background/ParallaxBackground';
 import { HeroParallax } from './components/hero/HeroParallax';
 import { LayeredCluster } from './components/clusters/LayeredCluster';
 import { StoryCurtain } from './components/sections/StoryCurtain';
-import { Footer } from './components/layout/Footer';
 import { MediaLightbox } from './components/lightbox/MediaLightbox';
 
 export function App() {
@@ -110,12 +109,6 @@ export function App() {
 
         {/* Story Curtain / About Section */}
         <StoryCurtain
-          onEnterHover={handleEnterHover}
-          onLeaveHover={handleLeaveHover}
-        />
-
-        {/* Editorial Footer */}
-        <Footer
           onEnterHover={handleEnterHover}
           onLeaveHover={handleLeaveHover}
         />

@@ -81,7 +81,7 @@ export const VideoCard: React.FC<VideoCardProps> = ({
         <div className="flex items-center justify-between pb-2.5 px-1">
           <div className="flex items-center gap-1.5 text-[9px] font-mono tracking-widest text-[#e8995e] uppercase">
             <Sparkles className="w-3 h-3" />
-            <span>CINEMATIC MOTION</span>
+            <span>VIDEO MEMORY</span>
           </div>
           <div className="text-[9px] font-mono bg-black/60 px-2 py-0.5 rounded-full border border-white/10 text-neutral-300">
             {video.duration}

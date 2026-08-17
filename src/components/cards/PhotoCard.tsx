@@ -37,13 +37,6 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
       onMouseLeave={onLeaveHover}
       className={`group relative polaroid-frame p-3 sm:p-4 rounded-2xl cursor-pointer select-none transition-all duration-300 ${className}`}
     >
-      {/* Subtle Corner Tape / Stamp Decoration */}
-      {photo.featured && (
-        <div className="absolute -top-3 left-6 bg-white/10 backdrop-blur-md border border-white/15 px-2.5 py-0.5 rounded text-[8px] font-mono tracking-widest text-[#d4af37] uppercase z-20">
-          SELECTED
-        </div>
-      )}
-
       {/* Image Container with Paper Border Frame */}
       <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-neutral-900 shadow-inner">
         <img

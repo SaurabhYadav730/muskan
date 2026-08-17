@@ -10,7 +10,7 @@ interface StoryCurtainProps {
 export const StoryCurtain: React.FC<StoryCurtainProps> = () => {
   return (
     <section
-      id="story"
+      id="wishes"
       className="relative py-28 md:py-36 px-6 md:px-12 bg-gradient-to-b from-transparent via-[#0e0e12] to-transparent border-t border-white/10 overflow-hidden"
     >
       {/* Background Subtle Monogram */}
@@ -18,16 +18,16 @@ export const StoryCurtain: React.FC<StoryCurtainProps> = () => {
         M
       </div>
 
-      <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
+      <div className="max-w-3xl mx-auto text-center space-y-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.3em] uppercase text-[#d4af37] border border-[#d4af37]/30 px-3.5 py-1 rounded-full bg-[#d4af37]/5"
+          className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.3em] uppercase text-[#d4af37] border border-[#d4af37]/30 px-4 py-1.5 rounded-full bg-[#d4af37]/5"
         >
           <Sparkles className="w-3.5 h-3.5" />
-          <span>Curator's Note</span>
+          <span>Birthday Wishes For You</span>
         </motion.div>
 
         <motion.h2
@@ -37,8 +37,8 @@ export const StoryCurtain: React.FC<StoryCurtainProps> = () => {
           transition={{ duration: 0.9, delay: 0.1 }}
           className="text-3xl sm:text-5xl md:text-6xl font-serif text-white leading-tight font-normal"
         >
-          “Some memories are too alive for words, <br />
-          <span className="italic font-light text-neutral-300">so we preserved them in light.”</span>
+          “To the sweetest sister, <br />
+          <span className="italic font-light text-[#d4af37]">may your smile always shine bright.”</span>
         </motion.h2>
 
         <motion.p
@@ -46,9 +46,9 @@ export const StoryCurtain: React.FC<StoryCurtainProps> = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-sm md:text-base text-neutral-400 font-light leading-relaxed max-w-2xl mx-auto"
+          className="text-sm md:text-base text-neutral-300 font-light leading-relaxed max-w-2xl mx-auto"
         >
-          This anthology is dedicated to the unscripted laughter, twilight walks, and quiet glances that define our journey. Every still and motion frame is layered with memory, texture, and affection.
+          Happy Birthday Muskan! Thank you for always bringing so much laughter, warmth, and fun energy into our lives. May this year bring you endless happiness, good health, and all the success in the world.
         </motion.p>
 
         {/* Signature & Heart Tag */}
@@ -62,9 +62,9 @@ export const StoryCurtain: React.FC<StoryCurtainProps> = () => {
           <span className="font-serif italic text-3xl md:text-4xl text-[#d4af37]">
             Muskan
           </span>
-          <div className="flex items-center gap-1.5 text-xs font-mono text-neutral-500 uppercase tracking-widest">
-            <span>Crafted with love & precision</span>
-            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
+          <div className="flex items-center gap-1.5 text-xs font-mono text-neutral-400 uppercase tracking-widest">
+            <span>Made with love for your birthday</span>
+            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 animate-pulse" />
           </div>
         </motion.div>
       </div>
