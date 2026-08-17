@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { PhotoItem, VideoItem } from '../../types';
-import { X, ChevronLeft, ChevronRight, MapPin, Calendar, Play } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, MapPin, Calendar, Camera, Play } from 'lucide-react';
 
 interface MediaLightboxProps {
   activeItem: PhotoItem | VideoItem | null;
@@ -62,14 +62,14 @@ export const MediaLightbox: React.FC<MediaLightboxProps> = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.35 }}
+        transition={{ duration: 0.4 }}
         className="fixed inset-0 z-[9990] flex items-center justify-center bg-black/95 backdrop-blur-2xl p-4 md:p-8"
         onClick={onClose}
       >
         {/* Top Control Bar */}
         <div className="absolute top-6 left-6 right-6 flex items-center justify-between z-50 pointer-events-auto">
           <div className="flex items-center gap-3 text-xs font-mono tracking-widest text-neutral-400 uppercase">
-            <span className="text-[#d4af37]">MUSKAN'S MEMORIES</span>
+            <span className="text-[#d4af37]">MUSKAN ARCHIVE</span>
             <span>•</span>
             <span>
               {String(currentIndex + 1).padStart(2, '0')} / {String(allItems.length).padStart(2, '0')}
@@ -116,10 +116,10 @@ export const MediaLightbox: React.FC<MediaLightboxProps> = ({
         {/* Center Media Card & Metadata */}
         <motion.div
           key={activeItem.id}
-          initial={{ scale: 0.95, opacity: 0, y: 15 }}
+          initial={{ scale: 0.94, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
-          exit={{ scale: 0.95, opacity: 0, y: 15 }}
-          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          exit={{ scale: 0.94, opacity: 0, y: 20 }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           onClick={(e) => e.stopPropagation()}
           className="relative max-w-5xl w-full max-h-[85vh] flex flex-col lg:flex-row items-center bg-[#121216] border border-white/15 rounded-3xl overflow-hidden shadow-2xl"
         >
@@ -144,12 +144,12 @@ export const MediaLightbox: React.FC<MediaLightboxProps> = ({
             )}
           </div>
 
-          {/* Metadata Sidebar */}
+          {/* Editorial Metadata Sidebar */}
           <div className="w-full lg:w-2/5 p-6 sm:p-8 flex flex-col justify-between h-auto lg:h-[75vh] border-t lg:border-t-0 lg:border-l border-white/10 overflow-y-auto">
             <div className="space-y-6">
               <div className="space-y-1">
                 <span className="text-[10px] font-mono tracking-widest text-[#d4af37] uppercase">
-                  {isVideo ? 'VIDEO MEMORY' : 'CHERISHED PHOTO'}
+                  {isVideo ? 'MOTION EXCERPT' : 'FINE ART STILL'}
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-serif italic text-white font-medium">
                   {activeItem.title}
@@ -174,6 +174,12 @@ export const MediaLightbox: React.FC<MediaLightboxProps> = ({
                   <div className="flex items-center gap-2.5">
                     <MapPin className="w-3.5 h-3.5 text-[#d4af37]" />
                     <span>{activeItem.location}</span>
+                  </div>
+                )}
+                {'cameraNote' in activeItem && activeItem.cameraNote && (
+                  <div className="flex items-center gap-2.5">
+                    <Camera className="w-3.5 h-3.5 text-[#d4af37]" />
+                    <span>{activeItem.cameraNote}</span>
                   </div>
                 )}
                 {isVideo && (

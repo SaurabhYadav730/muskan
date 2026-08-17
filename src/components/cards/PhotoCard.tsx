@@ -37,6 +37,13 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
       onMouseLeave={onLeaveHover}
       className={`group relative polaroid-frame p-3 sm:p-4 rounded-2xl cursor-pointer select-none transition-all duration-300 ${className}`}
     >
+      {/* Subtle Corner Tape / Stamp Decoration */}
+      {photo.featured && (
+        <div className="absolute -top-3 left-6 bg-white/10 backdrop-blur-md border border-white/15 px-2.5 py-0.5 rounded text-[8px] font-mono tracking-widest text-[#d4af37] uppercase z-20">
+          SELECTED
+        </div>
+      )}
+
       {/* Image Container with Paper Border Frame */}
       <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-neutral-900 shadow-inner">
         <img
@@ -54,7 +61,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
         </div>
       </div>
 
-      {/* Bottom Metadata & Caption */}
+      {/* Editorial Bottom Metadata & Caption */}
       <div className="mt-3.5 px-1 space-y-1.5">
         <div className="flex items-center justify-between">
           <h4 className="font-serif italic text-base sm:text-lg text-white group-hover:text-[#d4af37] transition-colors duration-300 font-medium">
@@ -66,13 +73,13 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({
         </div>
 
         {photo.caption && (
-          <p className="text-xs text-neutral-300 line-clamp-2 leading-relaxed font-light">
+          <p className="text-xs text-neutral-400 line-clamp-2 leading-relaxed font-light">
             {photo.caption}
           </p>
         )}
 
         {photo.location && (
-          <div className="flex items-center gap-1 text-[10px] font-mono text-[#d4af37] pt-0.5">
+          <div className="flex items-center gap-1 text-[10px] font-mono text-[#d4af37] pt-1">
             <MapPin className="w-2.5 h-2.5" />
             <span>{photo.location}</span>
           </div>

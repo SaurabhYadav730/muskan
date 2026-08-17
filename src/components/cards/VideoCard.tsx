@@ -23,7 +23,6 @@ export const VideoCard: React.FC<VideoCardProps> = ({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
 
-  // Automatically start playing in loop upon mount
   useEffect(() => {
     const videoEl = videoRef.current;
     if (!videoEl) return;
@@ -31,14 +30,12 @@ export const VideoCard: React.FC<VideoCardProps> = ({
     videoEl.muted = true;
     const playPromise = videoEl.play();
     if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Autoplay policy handled gracefully
-      });
+      playPromise.catch(() => {});
     }
   }, [video.src]);
 
   const handleMouseEnter = () => {
-    onEnterHover('VIEW');
+    onEnterHover('PLAY');
   };
 
   const handleMouseLeave = () => {
@@ -83,9 +80,8 @@ export const VideoCard: React.FC<VideoCardProps> = ({
         {/* Top Badges */}
         <div className="flex items-center justify-between pb-2.5 px-1">
           <div className="flex items-center gap-1.5 text-[9px] font-mono tracking-widest text-[#e8995e] uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#e8995e] animate-pulse" />
             <Sparkles className="w-3 h-3" />
-            <span>VIDEO MEMORY</span>
+            <span>CINEMATIC MOTION</span>
           </div>
           <div className="text-[9px] font-mono bg-black/60 px-2 py-0.5 rounded-full border border-white/10 text-neutral-300">
             {video.duration}
@@ -106,19 +102,19 @@ export const VideoCard: React.FC<VideoCardProps> = ({
             className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
 
-          {/* Hover Expand Overlay */}
+          {/* Hover Action Badge */}
           <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
             <div className="w-11 h-11 rounded-full bg-[#e8995e]/90 text-black flex items-center justify-center shadow-lg shadow-[#e8995e]/40 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
               <Maximize2 className="w-5 h-5" />
             </div>
           </div>
 
-          {/* Sound Toggle Button (Bottom Corner) */}
+          {/* Sound Toggle Button */}
           <button
             type="button"
             onClick={toggleMute}
             className="absolute bottom-3 right-3 p-2 rounded-full bg-black/70 hover:bg-black/90 text-white backdrop-blur-md border border-white/20 z-30 transition-all duration-200"
-            title={isMuted ? 'Unmute video' : 'Mute video'}
+            title={isMuted ? 'Unmute' : 'Mute'}
           >
             {isMuted ? <VolumeX className="w-3.5 h-3.5 text-neutral-300" /> : <Volume2 className="w-3.5 h-3.5 text-[#e8995e]" />}
           </button>
@@ -134,7 +130,7 @@ export const VideoCard: React.FC<VideoCardProps> = ({
               {video.date}
             </span>
           </div>
-          <p className="text-xs text-neutral-300 line-clamp-2 leading-relaxed font-light">
+          <p className="text-xs text-neutral-400 line-clamp-2 leading-relaxed font-light">
             {video.caption}
           </p>
         </div>

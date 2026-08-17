@@ -9,6 +9,7 @@ import { ParallaxBackground } from './components/background/ParallaxBackground';
 import { HeroParallax } from './components/hero/HeroParallax';
 import { LayeredCluster } from './components/clusters/LayeredCluster';
 import { StoryCurtain } from './components/sections/StoryCurtain';
+import { Footer } from './components/layout/Footer';
 import { MediaLightbox } from './components/lightbox/MediaLightbox';
 
 export function App() {
@@ -83,11 +84,11 @@ export function App() {
             <div className="flex items-center gap-3">
               <span className="w-2.5 h-2.5 rounded-full bg-[#d4af37]" />
               <span className="text-xs font-mono tracking-[0.25em] uppercase text-neutral-400">
-                MEMORY ALBUM & SPECIAL CHAPTERS
+                LAYERED COMPOSITIONS & STACKS
               </span>
             </div>
-            <div className="text-xs font-mono text-neutral-400 uppercase tracking-wider">
-              {photosData.length} Photos • {videosData.length} Videos
+            <div className="text-xs font-mono text-neutral-500 uppercase">
+              10 Stills • 2 Motion Captures
             </div>
           </div>
 
@@ -109,6 +110,12 @@ export function App() {
 
         {/* Story Curtain / About Section */}
         <StoryCurtain
+          onEnterHover={handleEnterHover}
+          onLeaveHover={handleLeaveHover}
+        />
+
+        {/* Editorial Footer */}
+        <Footer
           onEnterHover={handleEnterHover}
           onLeaveHover={handleLeaveHover}
         />
